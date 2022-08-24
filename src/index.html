@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
-  <script type="module">
-    import { PrwModal } from './modal.js';
-    window.customElements.define('prw-modal', PrwModal);
-  </script>
   <style>
     :root {
       --primary: red;
@@ -17,6 +12,7 @@
       width: 75%;
     }
   </style>
+
   <title>Web components</title>
 </head>
 <body>
@@ -25,7 +21,7 @@
     <p>
       This modal is open
     </p>
-    <button class="btn" onclick="openModal"> Close modal </button>
+    <button class="btn" onclick="closeModal()"> Close modal </button>
   </prw-modal>
 
   <button class="btn" onclick="openModal()"> Open modal </button>

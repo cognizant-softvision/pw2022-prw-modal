@@ -1,46 +1,15 @@
-const style = `
-  <style>
-    .dialog {
-      border: none;
-      width: 50%;
-    }
+import { generateHTMLelementInnerHTML } from "../../util";
+import css from './modal.css';
+import html from './modal.html';
 
-    .dialog header {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-    }
-    
-    header span {
-      cursor: pointer;
-    }
-    
-    header h1 {
-      font-size: 16px;
-      font-weight: bold;
-      color: var(--primary);
-    }
-  </style>
-`;
-
-const htmlStructure = `
-  <dialog part="dialog" class="dialog">
-    <header>
-      <span> x </span>
-    </header>
-    <slot part="content"></slot>
-  </dialog>
-`;
-
-
-export class PrwModal extends HTMLElement {
+class PrwModal extends HTMLElement {
   #dialog;
   #header;
   #isOpen = false;
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `${style} ${htmlStructure}`;
+    this.shadowRoot.innerHTML = generateHTMLelementInnerHTML(css, html);
     this.#dialog = this.shadowRoot.querySelector('dialog');
     this.#header = this.shadowRoot.querySelector('header');
     this.#dialog.addEventListener('click', this.#onBackdropClick.bind(this));
@@ -131,4 +100,8 @@ export class PrwModal extends HTMLElement {
       this.#isOpen = false;
     }
   }
+}
+
+if (!window.customElements.get('prw-modal')) {
+  window.customElements.define('prw-modal', PrwModal);
 }
