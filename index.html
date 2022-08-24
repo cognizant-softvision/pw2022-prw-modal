@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <script type="module">
+    import { PrwModal } from './modal.js';
+    window.customElements.define('prw-modal', PrwModal);
+  </script>
+  <style>
+    :root {
+      --primary: red;
+    }
+    prw-modal::part(dialog):hover {
+      width: 75%;
+    }
+  </style>
+  <title>Web components</title>
+</head>
+<body>
+  <h1> Modal component</h1>
+  <prw-modal title="My awesome modal" onClose="handleCloseModal()">
+    <p>
+      This modal is open
+    </p>
+    <button class="btn" onclick="openModal"> Close modal </button>
+  </prw-modal>
+
+  <button class="btn" onclick="openModal()"> Open modal </button>
+  <script>
+    const modal = document.querySelector('prw-modal');
+    modal.addEventListener('onClose', () => {
+      modal.hideModal();
+    })
+    const openModal = () => {
+      modal.showModal();
+    }
+
+    const handleCloseModal = () => {
+      modal.hideModal();
+    }
+  </script>
+</body>
+</html>
