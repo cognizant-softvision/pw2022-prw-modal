@@ -1,2 +1,2 @@
-# pw2022-prw-modal
+# pw2022-web-components
 Basic modal using web component and webpack
