@@ -5,6 +5,7 @@ import html from './modal.html';
 class PrwModal extends HTMLElement {
   #dialog;
   #header;
+  #slot;
   #isOpen = false;
   constructor() {
     super();
@@ -12,6 +13,10 @@ class PrwModal extends HTMLElement {
     this.shadowRoot.innerHTML = generateHTMLelementInnerHTML(css, html);
     this.#dialog = this.shadowRoot.querySelector('dialog');
     this.#header = this.shadowRoot.querySelector('header');
+    this.#slot = this.shadowRoot.querySelector('slot');
+    this.#slot.addEventListener('slotchange', () => {
+      console.log('slot changed!');
+    });
     this.#dialog.addEventListener('click', this.#onBackdropClick.bind(this));
     this.#dialog.addEventListener('cancel', this.#onCancel.bind(this));
     const closeButton = this.#dialog.querySelector('span');
