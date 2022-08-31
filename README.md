@@ -2,7 +2,7 @@
 
 ## About this repository
 
-In this repository you will find all the information of web components and the code that was shown in the 2022 Programmer's week about web components.
+In this repository you will find all the information of web components and the code that was shown in the [2022 Programmer's week about web components.](https://cognizantsoftvisionevents.com/programmersweek)
 
 ## Branches
 
