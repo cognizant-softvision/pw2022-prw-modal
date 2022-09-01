@@ -92,9 +92,14 @@ export class PrwModal extends HTMLElement {
 
   #setTitle(title) {
     if (this.#header) {
-      const h1Element = document.createElement('h1');
-      h1Element.innerHTML = title;
-      this.#header.appendChild(h1Element);
+      const titleElement = this.#header.querySelector('h1');
+      if (titleElement) {
+        titleElement.innerHTML = title;
+      } else {
+        const h1Element = document.createElement('h1');
+        h1Element.innerHTML = title;
+        this.#header.appendChild(h1Element);
+      }
     }
   }
 
