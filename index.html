@@ -22,7 +22,7 @@
 </head>
 <body>
   <h1> Modal component</h1>
-  <prw-modal title="My awesome modal" onClose="handleCloseModal()">
+  <prw-modal title="My awesome modal" >
     <p>
       This modal is open
     </p>
@@ -34,7 +34,8 @@
     const modal = document.querySelector('prw-modal');
     modal.addEventListener('onClose', () => {
       modal.hideModal();
-    })
+    });
+
     const openModal = () => {
       modal.showModal();
     }
